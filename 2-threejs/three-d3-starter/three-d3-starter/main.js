@@ -1,4 +1,4 @@
-console.log('Hello Three.js')
+//console.log('Hello Three.js')
 
 // import the THREE library
 import * as THREE from 'three'
@@ -101,7 +101,7 @@ console.log(svg)
               .enter() // take data items one by one and perform further operations on each element
                   .append("rect")
                   .attr("class", "bar")
-                  .attr("height", d => height - y_scale(d["Total_Attendance"]))
+                  .attr("height", d => d3.height - y_scale(d["Total_Attendance"]))
                   .attr("width", barWidth - padding)
                   .attr("transform", ((d, i) => {
                       let translate = barWidth * i
