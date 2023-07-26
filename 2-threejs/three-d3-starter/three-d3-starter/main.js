@@ -47,7 +47,7 @@ renderer.setSize(WIDTH, HEIGHT)
 // add automatically created canvas element to the webpage
 container.appendChild(renderer.domElement);
 
-// load external data here <-- D3 data binding
+//D3 data binding
 // set the chart margins, padding and dimensions for future use
 const chart_width = window.innerWidth;
 const chart_height = window.innerHeight - 60;
@@ -69,48 +69,46 @@ let svg = d3
     .attr("class", "bar-chart");
 console.log(svg)
 
-    d3.csv("assets/fifa_world_cup_attendance/FIFA-World-Cup-Attendance.csv", d3.autoType)
+// load external data here <--
+    d3.csv("./assets/fifa_world_cup_attendance/FIFA-World-Cup-Attendance.csv", d3.autoType)
     .then(data => {
+        console.log(data);
 // Declare the y (vertical position) scale, Total_Attendance
-const y_scale = d3.scaleLinear()
-  .range([chart_height, 0])
-  .domain([0, d3.max(data, d => d["Total_Attendance"])])
+        const y_scale = d3.scaleLinear()
+            .range([chart_height, 0])
+            .domain([0, d3.max(data, d => d["Total_Attendance"])])
 
   // Declare the x (horizontal position) scale, Year
-const x_scale = d3.scaleTime()
-    .domain([new Date(xMin), new Date(xMax)]) 
-    .range([0, chart_width]);
+        const x_scale = d3.scaleTime()
+            .domain([new Date(xMin), new Date(xMax)]) 
+            .range([0, chart_width]);
 
  // Declare the z (horizontal position) scale, Hosts
-const zScale = d3.scaleBand()
-  .domain(data.map(d => d["Hosts"])) // array of host country names
-  .range([0, data.length]);
+        const zScale = d3.scaleBand()
+            .domain(data.map(d => d["Hosts"])) // array of host country names
+            .range([0, data.length]);
 
     // min and max variables
-    let xMin = d3.min(data, (d) => d['Year'])
-    let xMax = d3.max(data, (d) => d['Year'])
+        let xMin = d3.min(data, (d) => d['Year'])
+        let xMax = d3.max(data, (d) => d['Year'])
 
-      console.log(data)
 
          //Build the Bars
-    const barWidth = Math.round(chart_width / data.length)
+          const barWidth = Math.round(chart_width / data.length)
 
-    svg.selectAll('rect')
-    .data(data)
-    .enter() // take data items one by one and perform further operations on each element
-
-    svg.selectAll('rect')
-  .data(data)
-  .enter()
-    .append("rect")
-    .attr("class", "bar")
-    .attr("height", d => height - y_scale(d["Total_Attendance"]))
-    .attr("width", barWidth - padding)
-    .attr("transform", ((d, i) => {
-      let translate = barWidth * i
-      console.log(translate)
-      return `translate(${translate}, 0)`
-  }))
+          svg.selectAll('rect')
+              .data(data)
+              .enter() // take data items one by one and perform further operations on each element
+                  .append("rect")
+                  .attr("class", "bar")
+                  .attr("height", d => height - y_scale(d["Total_Attendance"]))
+                  .attr("width", barWidth - padding)
+                  .attr("transform", ((d, i) => {
+                      let translate = barWidth * i
+                      console.log(translate)
+                      return `translate(${translate}, 0)`
+                  })
+                })
 
  // make a reference to all the svgs
 const svgList = document.querySelectorAll("rect");
@@ -139,7 +137,6 @@ const mesh = new THREE.Mesh( geometry, material ) ;
 scene.add( mesh );
 
 mesh.position.set(0, 0 , 0);
-    })
 
 
 
