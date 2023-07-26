@@ -1,0 +1,11 @@
+Model Information:
+* title:	Potarch Bridge, Kincardine O'Neil
+* source:	https://sketchfab.com/3d-models/potarch-bridge-kincardine-oneil-9ae6eaa984c942009ba3a58211877982
+* author:	Douglas Ledingham (https://sketchfab.com/Douglas.Ledingham)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Potarch Bridge, Kincardine O'Neil" (https://sketchfab.com/3d-models/potarch-bridge-kincardine-oneil-9ae6eaa984c942009ba3a58211877982) by Douglas Ledingham (https://sketchfab.com/Douglas.Ledingham) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
