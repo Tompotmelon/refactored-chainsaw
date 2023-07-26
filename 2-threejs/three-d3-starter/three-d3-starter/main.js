@@ -108,7 +108,7 @@ console.log(svg)
                       console.log(translate)
                       return `translate(${translate}, 0)`
                   })
-                })
+        });
 
  // make a reference to all the svgs
 const svgList = document.querySelectorAll("rect");
