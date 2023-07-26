@@ -102,7 +102,7 @@ console.log(svg)
                   .append("rect")
                   .attr("class", "bar")
                   .attr("height", d => d3.height - y_scale(d["Total_Attendance"]))
-                  .attr("width", barWidth - padding)
+                  .attr("width", barWidth - d3.padding)
                   .attr("transform", ((d, i) => {
                       let translate = barWidth * i
                       console.log(translate)
