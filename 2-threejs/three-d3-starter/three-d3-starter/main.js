@@ -1,4 +1,4 @@
-//console.log('Hello Three.js')
+console.log('Hello Three.js')
 
 // import the THREE library
 import * as THREE from 'three'
@@ -70,7 +70,7 @@ let svg = d3
 console.log(svg)
 
 // load external data here <--
-    d3.csv("./assets/fifa_world_cup_attendance/FIFA-World-Cup-Attendance.csv", d3.autoType)
+    d3.csv("./assets/fifa_world_cup_attendance/Attendance.csv", d3.autoType)
     .then(data => {
         console.log(data);
 // Declare the y (vertical position) scale, Total_Attendance
@@ -107,7 +107,7 @@ console.log(svg)
                       let translate = barWidth * i
                       console.log(translate)
                       return `translate(${translate}, 0)`
-                  })
+                  }))
         });
 
  // make a reference to all the svgs
