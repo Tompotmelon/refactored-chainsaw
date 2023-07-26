@@ -8,6 +8,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 //==== libraries and addons
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+//import SVGLoader
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 
 // get a reference to the scene-container element that will eventually hold the scene
@@ -46,7 +47,7 @@ renderer.setSize(WIDTH, HEIGHT)
 // add automatically created canvas element to the webpage
 container.appendChild(renderer.domElement);
 
-// load external data here <--
+// load external data here <-- D3 data binding
 // set the chart margins, padding and dimensions for future use
 const chart_width = window.innerWidth;
 const chart_height = window.innerHeight - 60;
@@ -56,16 +57,17 @@ const margin = { top: 30, right: 0, bottom: 60, left: 30 };
 // append the svg to the threejs canvas
 let svg = d3
   // a <canvas> element was automatically created and appended to the webpage, so we can select it
-.select("canvas")
+    .select("canvas")
   // append the svg element to the canvas
-.append("svg")
+    .append("svg")
     // set the width and height attributes to the svg element
     .attr("width", chart_width + margin.left + margin.right)
     .attr("height", chart_height + margin.top * margin.bottom)
-      // limit the height of the bars to the height of the chart
+    // limit the height of the bars to the height of the chart
     .range([chart_height, 0]) // this is flipped
     // you can giv the svg element its own class name
     .attr("class", "bar-chart");
+console.log(svg)
 
     d3.csv("assets/fifa_world_cup_attendance/FIFA-World-Cup-Attendance.csv", d3.autoType)
     .then(data => {
